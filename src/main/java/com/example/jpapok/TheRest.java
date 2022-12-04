@@ -10,7 +10,7 @@ import java.util.List;
 public class TheRest {
 
 	@Autowired
-	private CustomerRepository customerRepository;
+	private CustomersRepository customersRepository;
 
 	@GetMapping("/getit")
 	public String getit() {
@@ -18,15 +18,15 @@ public class TheRest {
 	}
 
 	@GetMapping("/customerlist")
-	public List<Customer> getCustomer() {
-		List<Customer> customers = customerRepository.findAll();
+	public List<Customers> getCustomer() {
+		List<Customers> customers = customersRepository.findAll();
 		System.out.println();
 		return customers;
 	}
 
 	@GetMapping("/customer22")
-	public Customer getCustomer22() {
-		Customer customers = customerRepository.findById(1L);
+	public Customers getCustomer22() {
+		Customers customers = customersRepository.findById(1L);
 		System.out.println();
 		return customers;
 	}

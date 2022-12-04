@@ -20,6 +20,22 @@ public class JpaPokApplication {
 
 
 	@Bean
+	public CommandLineRunner demo(CustomersRepository repository) {
+		return (args) -> {
+			// fetch all customers
+			log.info("Customers found with findAll():");
+			log.info("-------------------------------");
+			for (Customers customers : repository.findAll()) {
+				log.info(customers.toString());
+			}
+			log.info("");
+
+		};
+	}
+
+
+/*
+	@Bean
 	public CommandLineRunner demo(CustomerRepository repository) {
 		return (args) -> {
 			// save a few customers
@@ -56,6 +72,7 @@ public class JpaPokApplication {
 			log.info("");
 		};
 	}
+*/
 
 
 }
