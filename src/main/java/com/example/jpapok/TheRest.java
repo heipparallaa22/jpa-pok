@@ -2,6 +2,8 @@ package com.example.jpapok;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -10,28 +12,23 @@ import java.util.List;
 public class TheRest {
 
 	@Autowired
-	private CustomersRepository customersRepository;
+	private Order33Service order33Service;
 
-	@GetMapping("/getit")
-	public String getit() {
-		return "Hello from Get It";
+	@GetMapping("/order33/{id}")
+	@ResponseBody
+	public Order33 getOrderById(@PathVariable Long id) {
+
+		Order33 order33 = order33Service.getOrderById(id);
+
+		Order33Dto order33Dto = new Order33Dto(order33);
+
+		return order33;
 	}
 
-	@GetMapping("/customerlist")
-	public List<Customers> getCustomer() {
-		List<Customers> customers = customersRepository.findAll();
-		System.out.println();
-		return customers;
+	@GetMapping("/order33/all")
+	public List<Order33> getOrder33List() {
+		return order33Service.findAll();
 	}
-
-	@GetMapping("/customer22")
-	public Customers getCustomer22() {
-		Customers customers = customersRepository.findById(1L);
-		System.out.println();
-		return customers;
-	}
-
-
 
 
 }
