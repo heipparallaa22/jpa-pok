@@ -12,6 +12,9 @@ import java.util.List;
 public class TheRest {
 
 	@Autowired
+	private ReviewService reviewService;
+
+	@Autowired
 	private Order33Service order33Service;
 
 	@GetMapping("/order33/{id}")
@@ -31,4 +34,14 @@ public class TheRest {
 	}
 
 
+	@GetMapping("/review/all")
+	public List<Review> getReviews() {
+		return reviewService.getAll();
+	}
+
+
+	@GetMapping("/review/{id}")
+	public Review findById(@PathVariable Long id) {
+		return reviewService.findById(id);
+	}
 }
