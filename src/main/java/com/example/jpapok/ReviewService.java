@@ -1,5 +1,6 @@
 package com.example.jpapok;
 
+import com.example.jpapok.order22.CustomerRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ public class ReviewService {
 
 	@Autowired
 	private ReviewRepository reviewRepository;
+
 
 	@Transactional
 	public List<Review> getAll() {

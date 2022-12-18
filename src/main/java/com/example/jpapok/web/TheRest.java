@@ -1,5 +1,9 @@
-package com.example.jpapok;
+package com.example.jpapok.web;
 
+import com.example.jpapok.*;
+import com.example.jpapok.order22.Customer;
+import com.example.jpapok.order22.CustomerRepository;
+import com.example.jpapok.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +17,27 @@ public class TheRest {
 
 	@Autowired
 	private ReviewService reviewService;
+
+	@Autowired
+	private CustomerService customerService;
+
+
+
+
+	@GetMapping("/customer/{id}")
+	@ResponseBody
+	public Customer getCustomerById(@PathVariable Long id) {
+		Customer customer = customerService.findById(id);
+		return customer;
+	}
+
+
+
+
+
+
+
+
 
 	@Autowired
 	private Order33Service order33Service;

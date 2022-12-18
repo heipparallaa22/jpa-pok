@@ -100,3 +100,28 @@ CREATE TABLE IF NOT EXISTS public.review
 
 ALTER TABLE IF EXISTS public.review
     OWNER to pg;
+
+
+
+-- -------------------------------------------
+
+-- Table: public.item33
+
+-- DROP TABLE IF EXISTS public.item33;
+
+CREATE TABLE IF NOT EXISTS public.customer_item
+(
+    id bigint NOT NULL,
+    customer_id bigint NOT NULL,
+    description text COLLATE pg_catalog."default",
+    CONSTRAINT customer_item_pkey PRIMARY KEY (id),
+    CONSTRAINT fkey FOREIGN KEY (customer_id)
+    REFERENCES public.customer (id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    )
+
+    TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.customer_item
+    OWNER to pg;
