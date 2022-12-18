@@ -1,0 +1,16 @@
+{
+  "id": 2,
+  "name": "Heippa Rallanen",
+  "address": "Heippakatu 33",
+
+  "customerItems": [
+	{
+	  "id": 2,
+	  "description": "jatkuvasti hÃ¤iriÃ¶itÃ¤"
+	},
+	{
+	  "id": 3,
+	  "description": "asuu suomessa"
+	}
+  ]
+}
