@@ -1,5 +1,7 @@
-package com.example.jpapok;
+package com.example.jpapok.service;
 
+import com.example.jpapok.Order33;
+import com.example.jpapok.Order33Repository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +20,6 @@ public class Order33Service {
 		Optional<Order33> order33 = order33Repository.findById(id);
 
 		Order33 theOrder = order33.get();
-
-		System.out.println();
 
 		return theOrder;
 	}
